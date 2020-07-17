@@ -4,6 +4,6 @@ type ShortcutsType = {
   multiply(a: number, b: number): Promise<number>;
 };
 
-const { Shortcuts } = NativeModules;
+const { RNShortcuts } = NativeModules;
 
-export default Shortcuts as ShortcutsType;
+export default RNShortcuts as ShortcutsType;
