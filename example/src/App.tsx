@@ -35,8 +35,12 @@ export default function App() {
 
   const setShortcuts = useCallback(async () => {
     const shortcuts = await Shortcuts.setShortcuts([
-      { type: 'song', title: 'Play' },
-      { type: 'course', title: 'Learn' },
+      {
+        type: 'song',
+        title: 'Play',
+        subtitle: 'Imagine by John Lennon',
+        iconName: 'ic_music',
+      },
     ]);
 
     setShortcutItems(shortcuts);
