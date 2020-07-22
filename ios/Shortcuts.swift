@@ -87,7 +87,7 @@ fileprivate extension UIApplicationShortcutItem {
         }
 
         let subtitle = value["subtitle"] as? String
-        let icon = UIApplicationShortcutIcon.from(value["icon"] as? String)
+        let icon = UIApplicationShortcutIcon.from(value["iconName"] as? String)
         let userInfo = value["data"] as? [String: NSSecureCoding]
 
         return UIApplicationShortcutItem(
