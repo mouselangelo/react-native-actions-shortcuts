@@ -1,17 +1,92 @@
 import * as React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import Shortcuts from 'react-native-shortcuts';
+import { useEffect, useState, useCallback } from 'react';
+import {
+  Button,
+  FlatList,
+  NativeEventEmitter,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
+import Shortcuts, { ShortcutItem } from 'react-native-shortcuts';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+  const [lastPressedShortcut, setLastPressedShortcut] = useState<
+    ShortcutItem | undefined
+  >();
 
-  React.useEffect(() => {
-    Shortcuts.multiply(3, 7).then(setResult);
-  }, []);
+  const [shortcutItems, setShortcutItems] = useState<
+    ShortcutItem[] | undefined
+  >();
+
+  const ShortcutsEmitter = new NativeEventEmitter(Shortcuts);
+
+  useEffect(() => {
+    const listener = (item: ShortcutItem) => {
+      setLastPressedShortcut(item);
+    };
+
+    ShortcutsEmitter.addListener('onShortcutItemPressed', listener);
+
+    return () => {
+      ShortcutsEmitter.removeListener('onShortcutItemPressed', listener);
+    };
+  }, [ShortcutsEmitter]);
+
+  const setShortcuts = useCallback(async () => {
+    const shortcuts = await Shortcuts.setShortcuts([
+      {
+        type: 'song',
+        title: 'Play',
+        subtitle: 'Imagine by John Lennon',
+        iconName: 'ic_music',
+      },
+    ]);
+
+    setShortcutItems(shortcuts);
+  }, [setShortcutItems]);
+
+  const getShortcuts = useCallback(async () => {
+    const shortcuts = await Shortcuts.getShortcuts();
+    setShortcutItems(shortcuts);
+  }, [setShortcutItems]);
+
+  const clear = useCallback(async () => {
+    Shortcuts.clearShortcuts();
+    setShortcutItems(undefined);
+    setLastPressedShortcut(undefined);
+  }, [setShortcutItems, setLastPressedShortcut]);
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      {lastPressedShortcut && (
+        <React.Fragment>
+          <Text style={styles.caption}>Last pressed shortcut item: </Text>
+          <Text style={styles.info}>{lastPressedShortcut?.title}</Text>
+        </React.Fragment>
+      )}
+
+      <Text style={styles.caption}>Current shortcuts: </Text>
+      {shortcutItems?.length ? (
+        <FlatList
+          style={styles.list}
+          data={shortcutItems}
+          keyExtractor={(_, index) => `${index}`}
+          renderItem={({ item }) => (
+            <Text style={styles.info}>
+              {item.type} : {item.title}
+            </Text>
+          )}
+        />
+      ) : (
+        <Text style={styles.info}>None</Text>
+      )}
+
+      <View style={styles.actions}>
+        <Button title="Set shortcuts" onPress={() => setShortcuts()} />
+        <Button title="Get shortcuts" onPress={() => getShortcuts()} />
+        <Button title="Clear" onPress={() => clear()} />
+      </View>
     </View>
   );
 }
@@ -19,7 +94,27 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 44,
+    margin: 16,
+  },
+  caption: {
+    marginVertical: 8,
+  },
+  info: {
+    width: '100%',
+    backgroundColor: '#f5f5f5',
     alignItems: 'center',
-    justifyContent: 'center',
+    padding: 8,
+  },
+  list: {
+    flex: 1,
+    width: '100%',
+  },
+  actions: {
+    position: 'absolute',
+    bottom: 0,
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'space-between',
   },
 });

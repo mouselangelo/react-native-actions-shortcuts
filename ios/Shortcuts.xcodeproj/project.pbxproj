@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6157325624C1EDC9000DF6AB /* Shortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6157325524C1EDC9000DF6AB /* Shortcuts.swift */; };
 		F4FF95D7245B92E800C19C63 /* RNShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF95D6245B92E800C19C63 /* RNShortcuts.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +25,8 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libShortcuts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libShortcuts.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6157325524C1EDC9000DF6AB /* Shortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shortcuts.swift; sourceTree = "<group>"; };
+		616C9D6024C8242B00C8F729 /* RNShortcuts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNShortcuts.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNShortcuts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNShortcuts.m; sourceTree = "<group>"; };
 		F4FF95D5245B92E700C19C63 /* Shortcuts-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Shortcuts-Bridging-Header.h"; sourceTree = "<group>"; };
 		F4FF95D6245B92E800C19C63 /* RNShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNShortcuts.swift; sourceTree = "<group>"; };
@@ -51,8 +54,10 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				F4FF95D6245B92E800C19C63 /* RNShortcuts.swift */,
+				616C9D6024C8242B00C8F729 /* RNShortcuts.h */,
 				B3E7B5891CC2AC0600A0062D /* RNShortcuts.m */,
+				F4FF95D6245B92E800C19C63 /* RNShortcuts.swift */,
+				6157325524C1EDC9000DF6AB /* Shortcuts.swift */,
 				F4FF95D5245B92E700C19C63 /* Shortcuts-Bridging-Header.h */,
 				134814211AA4EA7D00B7C361 /* Products */,
 			);
@@ -116,6 +121,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4FF95D7245B92E800C19C63 /* RNShortcuts.swift in Sources */,
+				6157325624C1EDC9000DF6AB /* Shortcuts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
