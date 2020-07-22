@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Platform,
 } from 'react-native';
 import Shortcuts, { ShortcutItem } from 'react-native-shortcuts';
 
@@ -37,7 +38,9 @@ export default function App() {
     const shortcuts = await Shortcuts.setShortcuts([
       {
         type: 'song',
-        title: 'Play',
+        title:
+          Platform.OS === 'android' ? 'Play "Imagine by John Lennon"' : 'Play',
+        shortTitle: 'Play "Imagine"',
         subtitle: 'Imagine by John Lennon',
         iconName: 'ic_music',
       },
