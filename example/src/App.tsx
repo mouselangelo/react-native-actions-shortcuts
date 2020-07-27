@@ -12,6 +12,8 @@ import {
 import Shortcuts, { ShortcutItem } from 'react-native-shortcuts';
 
 export default function App() {
+  const [initialShortcut, setInitialShortcut] = useState<ShortcutItem | null>();
+
   const [lastPressedShortcut, setLastPressedShortcut] = useState<
     ShortcutItem | undefined
   >();
@@ -21,6 +23,14 @@ export default function App() {
   >();
 
   const ShortcutsEmitter = new NativeEventEmitter(Shortcuts);
+
+  useEffect(() => {
+    const getInitialShortcut = async () => {
+      const shortcutItem = await Shortcuts.getInitialShortcut();
+      setInitialShortcut(shortcutItem);
+    };
+    getInitialShortcut();
+  }, [setInitialShortcut]);
 
   useEffect(() => {
     const listener = (item: ShortcutItem) => {
@@ -43,6 +53,9 @@ export default function App() {
         shortTitle: 'Play "Imagine"',
         subtitle: 'Imagine by John Lennon',
         iconName: 'ic_music',
+        data: {
+          id: '1234',
+        },
       },
     ]);
 
@@ -60,12 +73,27 @@ export default function App() {
     setLastPressedShortcut(undefined);
   }, [setShortcutItems, setLastPressedShortcut]);
 
+  console.log({ initialShortcut, lastPressedShortcut });
+
   return (
     <View style={styles.container}>
+      {initialShortcut && (
+        <React.Fragment>
+          <Text style={styles.caption}>Initial shortcut item: </Text>
+          <Text style={styles.info}>
+            {initialShortcut?.type} : {initialShortcut?.title},{' '}
+            {initialShortcut.data?.id}
+          </Text>
+        </React.Fragment>
+      )}
+
       {lastPressedShortcut && (
         <React.Fragment>
           <Text style={styles.caption}>Last pressed shortcut item: </Text>
-          <Text style={styles.info}>{lastPressedShortcut?.title}</Text>
+          <Text style={styles.info}>
+            {lastPressedShortcut?.type}: {lastPressedShortcut?.title} ,{' '}
+            {lastPressedShortcut.data?.id}
+          </Text>
         </React.Fragment>
       )}
 

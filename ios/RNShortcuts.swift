@@ -47,6 +47,11 @@ public class RNShortcuts: RCTEventEmitter {
         Shortcuts.shared.clearShortcuts()
     }
 
+    @objc(getInitialShortcut:reject:)
+    public func getInitialShortcut(resolve: @escaping RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
+        resolve(Shortcuts.shared.getInitialShortcut())
+    }
+
     @objc
     public class func performActionForShortcutItem(_ shortcutItem: UIApplicationShortcutItem,
                                                    completionHandler: (Bool) ->Void) {

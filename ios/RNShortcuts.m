@@ -16,5 +16,10 @@ RCT_EXTERN_METHOD(
 
 RCT_EXTERN_METHOD(clearShortcuts)
 
+RCT_EXTERN_METHOD(
+    getInitialShortcut:(RCTPromiseResolveBlock)resolve
+    reject:(RCTPromiseRejectBlock)reject
+)
+
 @end
 

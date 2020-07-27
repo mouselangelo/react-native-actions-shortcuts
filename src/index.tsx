@@ -31,7 +31,7 @@ export interface ShortcutItem {
   /**
    * Custom payload for the action
    */
-  data?: object;
+  data?: any;
 }
 
 interface ShortcutsType extends EventSubscriptionVendor {
@@ -50,6 +50,11 @@ interface ShortcutsType extends EventSubscriptionVendor {
    * Removes all the shortcut items
    */
   clearShortcuts(): void;
+
+  /**
+   * Gets the initial shortcut the app was launched with
+   */
+  getInitialShortcut(): Promise<ShortcutItem | null>;
 }
 
 const { RNShortcuts } = NativeModules;
