@@ -8,14 +8,13 @@ export interface ShortcutItem {
 
   /**
    * On Android - it's recommended to keep this under 25 characters. If there
-   * isn't enough space to display this, fallsback to `shortTitle` (when
-   * provided)
+   * isn't enough space to display this, fallsback to `shortTitle`
    */
   title: string;
 
   /**
    * Android only, max 10 characters recommended. This is displayed instead of
-   * `title` when there is not enough space to display the title
+   * `title` when there is not enough space to display the title.
    */
   shortTitle?: string;
 
@@ -32,7 +31,7 @@ export interface ShortcutItem {
   /**
    * Custom payload for the action
    */
-  data?: object;
+  data?: any;
 }
 
 interface ShortcutsType extends EventSubscriptionVendor {
@@ -51,6 +50,11 @@ interface ShortcutsType extends EventSubscriptionVendor {
    * Removes all the shortcut items
    */
   clearShortcuts(): void;
+
+  /**
+   * Gets the initial shortcut the app was launched with
+   */
+  getInitialShortcut(): Promise<ShortcutItem | null>;
 }
 
 const { RNShortcuts } = NativeModules;

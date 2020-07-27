@@ -41,6 +41,15 @@ class Shortcuts: NSObject {
         }
     }
 
+    func getInitialShortcut() -> ShortcutItem? {
+        guard let unhandledShortcutItem = self.unhandledShortcutItem else {
+            return nil
+        }
+
+        self.unhandledShortcutItem = nil
+        return unhandledShortcutItem.asDictionary
+    }
+
     private func processUnhandledShortcutItem() {
         guard
             let unhandledShortcutItem = self.unhandledShortcutItem ,

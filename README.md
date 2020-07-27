@@ -25,3 +25,8 @@ See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the 
 ## License
 
 MIT
+
+## Attribution
+
+Icons made by [Gregor Cresnar](https://www.flaticon.com/authors/gregor-cresnar)
+from [www.flaticon.com](https://www.flaticon.com/)
