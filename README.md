@@ -33,6 +33,8 @@ Android doesn't require any additional setup.
 
 ## Usage
 
+Check out the [Example project](./example/README.md).
+
 Imports
 
 ```js
@@ -107,6 +109,25 @@ Some information may be lost, such as iconName, data
 ```js
 const shortcutItems = await Shortcuts.getShortcuts();
 ```
+
+## Icons
+
+To display icons with your shortcuts / actions you will need to add them to your
+project. Once added use the name of your iOS asset or Android drawable as the
+value for `iconName` above.
+
+### iOS - Asset library
+
+Add new assets to your Asset library by importing either `png` (scalar) or
+`pdf` (vector) files.
+
+### Android - drawable
+
+Add drawable resources to you Android project. In Android studio, choose:
+
+- for vector icons (SVG / PDF): __File > New > Vector Asset__
+
+- for scalar icons (PNG): __File > New > Image Asset__
 
 ## Contributing
 
