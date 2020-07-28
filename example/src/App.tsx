@@ -9,7 +9,7 @@ import {
   View,
   Platform,
 } from 'react-native';
-import Shortcuts, { ShortcutItem } from 'react-native-shortcuts';
+import Shortcuts, { ShortcutItem } from 'react-native-actions-shortcuts';
 
 export default function App() {
   const [initialShortcut, setInitialShortcut] = useState<ShortcutItem | null>();

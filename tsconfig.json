@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "react-native-shortcuts": ["./src/index"]
+      "react-native-actions-shortcuts": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

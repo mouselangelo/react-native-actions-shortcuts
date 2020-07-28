@@ -1,14 +1,11 @@
-# react-native-shortcuts
+# react-native-actions-shortcuts
 
 iOS Home screen Quick Actions &amp; Android App Shortcuts for react-native
 
 ## Installation
 
-This package is not yet published to the npm public repository, so currently it
-has to be installed directly using the GitHub URL:
-
 ```bash
-npm install git+https://github.com/mouselangelo/react-native-shortcuts.git
+npm install react-native-actions-shortcuts
 ```
 
 ## Setup
@@ -40,10 +37,10 @@ Imports
 ```js
 // ...
 import { NativeEventEmitter } from "react-native";
-import Shortcuts from "react-native-shortcuts";
+import Shortcuts from "react-native-actions-shortcuts";
 
 // if using typescript, can also use the 'ShortcutItem' type
-import Shortcuts, { ShortcutItem } from "react-native-shortcuts";
+import Shortcuts, { ShortcutItem } from "react-native-actions-shortcuts";
 
 // ...
 ```
