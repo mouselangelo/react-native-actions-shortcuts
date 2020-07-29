@@ -73,8 +73,6 @@ export default function App() {
     setLastPressedShortcut(undefined);
   }, [setShortcutItems, setLastPressedShortcut]);
 
-  console.log({ initialShortcut, lastPressedShortcut });
-
   return (
     <View style={styles.container}>
       {initialShortcut && (

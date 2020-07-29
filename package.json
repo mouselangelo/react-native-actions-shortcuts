@@ -37,13 +37,13 @@
     "app-shortcuts",
     "home-screen"
   ],
-  "repository": "https://github.com/mouselangelo/react-native-shortcuts",
+  "repository": "https://github.com/mouselangelo/react-native-actions-shortcuts",
   "author": "Chetan Agarwal <chetan.mouselangelo@gmail.com> (https://github.com/mouselangelo)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mouselangelo/react-native-shortcuts/issues"
+    "url": "https://github.com/mouselangelo/react-native-actions-shortcuts/issues"
   },
-  "homepage": "https://github.com/mouselangelo/react-native-shortcuts#readme",
+  "homepage": "https://github.com/mouselangelo/react-native-actions-shortcuts#readme",
   "devDependencies": {
     "@commitlint/config-conventional": "^8.3.4",
     "@react-native-community/bob": "^0.16.2",

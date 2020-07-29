@@ -1,4 +1,4 @@
-package com.example.reactnativeshortcuts;
+package com.example.reactnativeactionsshortcuts;
 
 import com.facebook.react.ReactActivity;
 
