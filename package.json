@@ -1,6 +1,6 @@
 {
   "name": "react-native-actions-shortcuts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "iOS Home screen Quick Actions & Android App Shortcuts for react-native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
