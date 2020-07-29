@@ -1,4 +1,4 @@
-# Simple example for `react-native-shortcuts`
+# Simple example for `react-native-actions-shortcuts`
 
 ## Run
 

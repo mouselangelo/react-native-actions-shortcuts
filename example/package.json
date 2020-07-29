@@ -1,6 +1,6 @@
 {
-  "name": "react-native-shortcuts-example",
-  "description": "Example app for react-native-shortcuts",
+  "name": "react-native-actions-shortcuts-example",
+  "description": "Example app for react-native-actions-shortcuts",
   "version": "0.0.1",
   "private": true,
   "scripts": {

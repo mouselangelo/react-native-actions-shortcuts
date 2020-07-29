@@ -1,7 +1,7 @@
 {
-  "name": "react-native-shortcuts",
-  "version": "0.1.0",
-  "description": "iOS Home screen Quick Actions &amp; Android App Shortcuts for react-native",
+  "name": "react-native-actions-shortcuts",
+  "version": "1.0.0",
+  "description": "iOS Home screen Quick Actions & Android App Shortcuts for react-native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/src/index.d.ts",
@@ -13,7 +13,7 @@
     "android",
     "ios",
     "cpp",
-    "react-native-shortcuts.podspec",
+    "react-native-actions-shortcuts.podspec",
     "!lib/typescript/example",
     "!**/__tests__",
     "!**/__fixtures__",
@@ -32,7 +32,10 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "quick-actions",
+    "app-shortcuts",
+    "home-screen"
   ],
   "repository": "https://github.com/mouselangelo/react-native-shortcuts",
   "author": "Chetan Agarwal <chetan.mouselangelo@gmail.com> (https://github.com/mouselangelo)",
@@ -119,7 +122,10 @@
       ]
     }
   },
-  "eslintIgnore": ["node_modules/", "lib/"],
+  "eslintIgnore": [
+    "node_modules/",
+    "lib/"
+  ],
   "prettier": {
     "quoteProps": "consistent",
     "singleQuote": true,
@@ -130,6 +136,10 @@
   "@react-native-community/bob": {
     "source": "src",
     "output": "lib",
-    "targets": ["commonjs", "module", "typescript"]
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
   }
 }
