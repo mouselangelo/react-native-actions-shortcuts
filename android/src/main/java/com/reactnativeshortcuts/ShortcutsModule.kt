@@ -1,4 +1,4 @@
-package com.reactnativeshortcuts
+package com.reactnativeactionsshortcuts
 
 import android.annotation.TargetApi
 import android.app.Activity

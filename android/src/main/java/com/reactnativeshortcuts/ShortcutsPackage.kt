@@ -1,4 +1,4 @@
-package com.reactnativeshortcuts
+package com.reactnativeactionsshortcuts
 
 import java.util.Arrays
 
