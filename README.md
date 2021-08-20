@@ -26,7 +26,7 @@ project's [`AppDelegate.m`](./example/ios/ShortcutsExample/AppDelegate.m)) file.
 }
 ```
 
-Do not forget to add `#import "RNShortcuts.h"` on top of your project's [`AppDelegate.m`] file.
+Do not forget to add `#import "RNShortcuts.h"` on top of your project's [`AppDelegate.m`](./example/ios/ShortcutsExample/AppDelegate.m) file.
 
 ### Android
 
