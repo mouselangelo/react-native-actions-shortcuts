@@ -29,6 +29,11 @@ export interface ShortcutItem {
   iconName?: string;
 
   /**
+   * The name of the iOS SF Symbol Name
+   */
+  symbolName?: string;
+
+  /**
    * Custom payload for the action
    */
   data?: any;
