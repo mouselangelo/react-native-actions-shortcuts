@@ -117,6 +117,6 @@ fileprivate extension UIApplicationShortcutIcon {
             }
             return UIApplicationShortcutIcon(templateImageName: imageName) 
         }
-        return UIApplicationShortcutIcon(templateImageName: symbolName)
+        return UIApplicationShortcutIcon(systemImageName: symbolName)
     }
 }
