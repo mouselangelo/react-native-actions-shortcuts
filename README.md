@@ -1,6 +1,6 @@
 # react-native-actions-shortcuts
 
-iOS [Home screen Quick Actions](https://developer.apple.com/design/human-interface-guidelines/ios/system-capabilities/home-screen-actions/) & Android [App Shortcuts](https://developer.android.com/guide/topics/ui/shortcuts/creating-shortcuts) for react-native
+iOS [Home screen Quick Actions](https://developer.apple.com/design/human-interface-guidelines/home-screen-quick-actions) & Android [App Shortcuts](https://developer.android.com/guide/topics/ui/shortcuts/creating-shortcuts) for react-native
 
 ## Installation
 
@@ -134,7 +134,7 @@ Add new assets to your [Asset catalog](https://developer.apple.com/library/archi
 
 Refer
 [Custom Icons : Home Screen Quick Action Icon
-Size](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/custom-icons/)
+Size](https://developer.apple.com/design/human-interface-guidelines/home-screen-quick-actions#Best-practices)
 to learn about the dimensions and design specifications.
 
 ### Android - drawable
