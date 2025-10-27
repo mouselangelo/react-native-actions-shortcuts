@@ -28,16 +28,16 @@ class ShortcutsModule(reactContext: ReactApplicationContext) :
         reactContext.addActivityEventListener(this)
     }
 
-    override fun onCatalystInstanceDestroy() {
+    override fun invalidate() {
         reactApplicationContext.removeActivityEventListener(this)
-        super.onCatalystInstanceDestroy()
+        super.invalidate()
     }
 
-    override fun onActivityResult(activity: Activity?, requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(activity: Activity, requestCode: Int, resultCode: Int, data: Intent?) {
         // No implementation needed
     }
 
-    override fun onNewIntent(intent: Intent?) {
+    override fun onNewIntent(intent: Intent) {
         emitEvent(intent)
     }
 
@@ -52,8 +52,8 @@ class ShortcutsModule(reactContext: ReactApplicationContext) :
             promise.reject(NotSupportedException)
         }
 
-        val context = reactApplicationContext ?: return
-        val activity = currentActivity ?: return
+        val context = reactApplicationContext
+        val activity = context.currentActivity ?: return
 
         val shortcutItems = items.toArrayList().mapIndexed { index, _ ->
             val map = items.getMap(index) ?: return
@@ -94,7 +94,9 @@ class ShortcutsModule(reactContext: ReactApplicationContext) :
             promise.reject(NotSupportedException)
         }
 
-        val shortcutManager = currentActivity?.getSystemService<ShortcutManager>(ShortcutManager::class.java)
+        val context = reactApplicationContext
+        val activity = context.currentActivity ?: return
+        val shortcutManager = activity.getSystemService<ShortcutManager>(ShortcutManager::class.java)
         val shortcutItems = shortcutManager?.dynamicShortcuts?.map {
             ShortcutItem(it.id, it.longLabel.toString(), it.shortLabel.toString(), null, null)
         }
@@ -109,7 +111,9 @@ class ShortcutsModule(reactContext: ReactApplicationContext) :
             promise.reject(NotSupportedException)
         }
 
-        val shortcutItem = getShortcutItemFromIntent(currentActivity?.intent)
+        val context = reactApplicationContext
+        val activity = context.currentActivity ?: return
+        val shortcutItem = getShortcutItemFromIntent(activity.intent)
 
         promise.resolve(shortcutItem?.toMap())
     }
@@ -121,7 +125,9 @@ class ShortcutsModule(reactContext: ReactApplicationContext) :
             return
         }
 
-        val shortcutManager = currentActivity?.getSystemService<ShortcutManager>(ShortcutManager::class.java)
+        val context = reactApplicationContext
+        val activity = context.currentActivity ?: return
+        val shortcutManager = activity.getSystemService<ShortcutManager>(ShortcutManager::class.java)
         shortcutManager?.removeAllDynamicShortcuts()
     }
 
