@@ -1,4 +1,4 @@
-import { NativeModules, NativeModule, EventSubscriptionVendor } from 'react-native';
+import { NativeModules, EventSubscriptionVendor } from 'react-native';
 
 export interface ShortcutItem {
   /**
@@ -34,7 +34,7 @@ export interface ShortcutItem {
   data?: any;
 }
 
-interface ShortcutsType extends NativeModule, EventSubscriptionVendor {
+interface ShortcutsType extends EventSubscriptionVendor {
   /**
    * Set the shortcut items.
    * @returns a promise with the items that were set
